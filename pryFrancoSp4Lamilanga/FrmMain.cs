@@ -30,6 +30,7 @@ namespace pryFrancoSp4Lamilanga
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void FrmMain_Load_1(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace pryFrancoSp4Lamilanga
 
         private void btnValidar_Click(object sender, EventArgs e)
         {
-            int varBandera = 0;
+            int i = 0;
             int f = 0;
             int c = 1; 
             int cmat = 0;
@@ -64,7 +65,7 @@ namespace pryFrancoSp4Lamilanga
                     
                     if (dgvInfo.Rows[f].Cells[c].Value == null || dgvInfo.Rows[f].Cells[c].Value == "")
                     {
-                        varBandera++;
+                        i++;
                     }
                     c++;
                 }
@@ -72,7 +73,7 @@ namespace pryFrancoSp4Lamilanga
                 f++;
             }
 
-            if (varBandera == 0)
+            if (i == 0)
             {
                 
                 btnMozo.Enabled = true;
@@ -99,7 +100,7 @@ namespace pryFrancoSp4Lamilanga
                 
                 btnMozo.Enabled = false;
                 btnTotal.Enabled = false;
-                MessageBox.Show("Asegurese de ingresar valores numéricos desde cero incluido en adelante.", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Asegurese de ingresar valores numéricos.", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -107,57 +108,62 @@ namespace pryFrancoSp4Lamilanga
         {
             int c = 0;
             int f = 0;
-            int varSuma = 0;
-            int varMayor = 0;
-            int varPosicion = 0; //capturo la posicion del mayor valor para identificar al mozo correspondiente.
+            int Suma = 0;
+            int Mayor = 0;
+            int Posicion = 0; 
             while (f < matDatos.GetLength(0))
             {
                 while (c < matDatos.GetLength(1))
                 {
-                    varSuma = varSuma + matDatos[f, c];
+                    Suma = Suma + matDatos[f, c];
                     c++;
                 }
-                VecDatos[f] = varSuma;
+                VecDatos[f] = Suma;
                 c = 0;
                 f++;
-                varSuma = 0;
+                Suma = 0;
             }
 
             f = 0;
-            varMayor = VecDatos[0];
+            Mayor = VecDatos[0];
             while (f <= 4)
             {
-                if (VecDatos[f] >= varMayor)
+                if (VecDatos[f] >= Mayor)
                 {
-                    varMayor = VecDatos[f];
-                    varPosicion = f;
+                    Mayor = VecDatos[f];
+                    Posicion = f;
                 }
                 f++;
             }
 
-            switch (varPosicion)
+            if (Posicion == 0)
             {
-                case 0:
-                    txtMozo.Text = "Julio";
-                    txtImporteMozo.Text =varMayor.ToString();
-                    break;
-                case 1:
-                    txtMozo.Text = "Esteban";
-                    txtImporteMozo.Text = varMayor.ToString();
-                    break;
-                case 2:
-                    txtMozo.Text = "Javier";
-                    txtImporteMozo.Text = varMayor.ToString();
-                    break;
-                case 3:
-                    txtMozo.Text = "Gonzalo";
-                    txtImporteMozo.Text = varMayor.ToString();
-                    break;
-                case 4:
-                    txtMozo.Text = "Alberto";
-                    txtImporteMozo.Text = varMayor.ToString();
-                    break;
+                txtMozo.Text = "Julio";
+                txtImporteMozo.Text = Mayor.ToString();
             }
+            if (Posicion == 1)
+            {
+                txtMozo.Text = "Esteban";
+                txtImporteMozo.Text = Mayor.ToString();
+            }
+            if (Posicion == 2)
+            {
+                txtMozo.Text = "Javier";
+                txtImporteMozo.Text = Mayor.ToString();
+            }
+            if (Posicion == 3)
+            {
+                txtMozo.Text = "Gonzalo";
+                txtImporteMozo.Text = Mayor.ToString();
+            }
+            if (Posicion == 4)
+            {
+                txtMozo.Text = "Alberto";
+                txtImporteMozo.Text = Mayor.ToString();
+            }
+
+            
+                
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
@@ -165,25 +171,25 @@ namespace pryFrancoSp4Lamilanga
             int f = 0;
             int c = 0;
             int i = 5;
-            int varSuma = 0;
-            int varTotal = 0;
+            int Suma = 0;
+            int Total = 0;
 
             while (c < matDatos.GetLength(1) && i <= 9)
             {
-                varSuma = 0;
+                Suma = 0;
                 while (f < matDatos.GetLength(0))
                 {
-                    varSuma = varSuma + matDatos[f, c];
+                    Suma = Suma + matDatos[f, c];
                     f++;
                 }
-                VecDatos[i] = varSuma;
-                varTotal = varTotal + varSuma;
+                VecDatos[i] = Suma;
+                Total = Total + Suma;
                 f = 0;
                 c++;
                 i++;
             }
 
-            VecDatos[9] = varTotal;
+            VecDatos[9] = Total;
 
             txtComida.Text = Convert.ToString(VecDatos[5]);
             txtBebidaSin.Text = Convert.ToString(VecDatos[6]);

@@ -51,14 +51,16 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtImporteMozo = new System.Windows.Forms.TextBox();
+            this.lblMonto = new System.Windows.Forms.Label();
+            this.lblMozo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnValidar
             // 
-            this.btnValidar.Location = new System.Drawing.Point(12, 236);
+            this.btnValidar.Location = new System.Drawing.Point(559, 12);
             this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Size = new System.Drawing.Size(89, 35);
+            this.btnValidar.Size = new System.Drawing.Size(147, 205);
             this.btnValidar.TabIndex = 1;
             this.btnValidar.Text = "Validar Datos";
             this.btnValidar.UseVisualStyleBackColor = true;
@@ -66,7 +68,7 @@
             // 
             // btnMozo
             // 
-            this.btnMozo.Location = new System.Drawing.Point(12, 290);
+            this.btnMozo.Location = new System.Drawing.Point(12, 254);
             this.btnMozo.Name = "btnMozo";
             this.btnMozo.Size = new System.Drawing.Size(89, 47);
             this.btnMozo.TabIndex = 2;
@@ -86,9 +88,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(666, 332);
+            this.btnSalir.Location = new System.Drawing.Point(693, 410);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(95, 71);
+            this.btnSalir.Size = new System.Drawing.Size(95, 28);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -96,7 +98,7 @@
             // 
             // txtMozo
             // 
-            this.txtMozo.Location = new System.Drawing.Point(116, 304);
+            this.txtMozo.Location = new System.Drawing.Point(116, 268);
             this.txtMozo.Name = "txtMozo";
             this.txtMozo.ReadOnly = true;
             this.txtMozo.Size = new System.Drawing.Size(84, 20);
@@ -245,11 +247,29 @@
             // 
             // txtImporteMozo
             // 
-            this.txtImporteMozo.Location = new System.Drawing.Point(230, 304);
+            this.txtImporteMozo.Location = new System.Drawing.Point(230, 268);
             this.txtImporteMozo.Name = "txtImporteMozo";
             this.txtImporteMozo.ReadOnly = true;
             this.txtImporteMozo.Size = new System.Drawing.Size(84, 20);
             this.txtImporteMozo.TabIndex = 18;
+            // 
+            // lblMonto
+            // 
+            this.lblMonto.AutoSize = true;
+            this.lblMonto.Location = new System.Drawing.Point(227, 254);
+            this.lblMonto.Name = "lblMonto";
+            this.lblMonto.Size = new System.Drawing.Size(37, 13);
+            this.lblMonto.TabIndex = 19;
+            this.lblMonto.Text = "Monto";
+            // 
+            // lblMozo
+            // 
+            this.lblMozo.AutoSize = true;
+            this.lblMozo.Location = new System.Drawing.Point(113, 254);
+            this.lblMozo.Name = "lblMozo";
+            this.lblMozo.Size = new System.Drawing.Size(33, 13);
+            this.lblMozo.TabIndex = 20;
+            this.lblMozo.Text = "Mozo";
             // 
             // FrmMain
             // 
@@ -257,6 +277,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMozo);
+            this.Controls.Add(this.lblMonto);
             this.Controls.Add(this.txtImporteMozo);
             this.Controls.Add(this.dgvInfo);
             this.Controls.Add(this.lblTotal);
@@ -307,6 +329,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.Label lblMozo;
     }
 }
 
